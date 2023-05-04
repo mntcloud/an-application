@@ -14,6 +14,7 @@ Next, generate your project
 cmake -P bootstrap.cmake
 ```
 `bootstrap.cmake` will take your project root folder name and will scaffold a project
+
 Then gracefully delete `bootstrap.cmake` script
 ```shell
 rm bootstrap.cmake
