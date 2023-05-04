@@ -1,12 +1,15 @@
 # Script is written, following ideology of KISS
 
-if (NOT DEFINED APP_NAME)
-    message(FATAL_ERROR "NO_APP_NAME: Please define your app name using -DAPP_NAME='<app_name>'")
-endif()
+# OPTIONS
 
-message(STATUS "generating project: ${APP_NAME}")
+# take the project name from project root directory
+cmake_path(GET CMAKE_SOURCE_DIR FILENAME APP_NAME)
 
 set(APP_CXX_STANDARD 17)
+
+# PROJECT GENERATION
+
+message(STATUS "generating project: ${APP_NAME}")
 
 string(TOLOWER ${APP_NAME} LOWERED_NAME)
 string(CONCAT INTERNAL_LIB_NAME "lib" ${LOWERED_NAME})
