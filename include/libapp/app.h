@@ -1,1 +1,0 @@
-#define LIBAPP_H

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14...3.22)
 
-project(libapp_tests LANGUAGES CXX)
+project(@INTERNAL_LIB_NAME@_tests LANGUAGES CXX)
 
 # ---- Options ----
 
@@ -8,32 +8,32 @@ option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 
 # ---- Dependencies ----
 
-include(../cmake/CPM.cmake)
+include(../tooling/CPM.cmake)
 
 CPMAddPackage("gh:doctest/doctest@2.4.9")
 
-CPMAddPackage(NAME libapp SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+CPMAddPackage(NAME @INTERNAL_LIB_NAME@ SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
 # ---- Create binary ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cc)
 
 add_executable(${PROJECT_NAME} ${sources})
-target_link_libraries(${PROJECT_NAME} doctest::doctest Greeter::Greeter)
+target_link_libraries(${PROJECT_NAME} doctest::doctest @INTERNAL_LIB_NAME@)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD @APP_CXX_STANDARD@)
 
 # enable compiler warnings
 if(NOT TEST_INSTALLED_VERSION)
   if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    target_compile_options(libapp PUBLIC -Wall -Wpedantic -Wextra -Werror)
+    target_compile_options(@INTERNAL_LIB_NAME@ PUBLIC -Wall -Wpedantic -Wextra -Werror)
   elseif(MSVC)
-    target_compile_options(libapp PUBLIC /W4 /WX)
+    target_compile_options(@INTERNAL_LIB_NAME@ PUBLIC /W4 /WX)
     target_compile_definitions(${PROJECT_NAME} PUBLIC DOCTEST_CONFIG_USE_STD_HEADERS)
   endif()
 endif()
 
-# ---- Add GreeterTests ----
+# ---- Add tests ----
 
 # generate testing target
 enable_testing()
@@ -44,6 +44,6 @@ doctest_discover_tests(${PROJECT_NAME})
 # ---- code coverage ----
 
 if(ENABLE_TEST_COVERAGE)
-  target_compile_options(libapp PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
-  target_link_options(libapp PUBLIC -fprofile-arcs -ftest-coverage)
+  target_compile_options(@INTERNAL_LIB_NAME@ PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+  target_link_options(@INTERNAL_LIB_NAME@ PUBLIC -fprofile-arcs -ftest-coverage)
 endif()

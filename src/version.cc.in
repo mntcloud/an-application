@@ -1,0 +1,5 @@
+#include <@INTERNAL_LIB_NAME@/version.h>
+
+const char* get_version() {
+    return VERSION;
+}
