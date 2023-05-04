@@ -17,4 +17,4 @@ rm bootstrap.cmake
 Now, you're setup and ready to go
 
 ## Credits
-- [ModernCppStarter](https://github.com/TheLartians/ModernCppStarter) - for serving influence material for this template
+- [ModernCppStarter](https://github.com/TheLartians/ModernCppStarter) - for serving as a influence material for this template
