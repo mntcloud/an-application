@@ -6,6 +6,7 @@ A C++ project template of mine, tuned for script-based generation
 
 Clone this repository and enter in it
 ```shell
+# to choose template, see branches of this repository
 git clone https://github.com/mntcloud/a-project your_app_name --depth 1 -b template/app
 cd your_app_name
 ```
