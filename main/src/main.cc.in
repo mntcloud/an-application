@@ -1,7 +1,0 @@
-#include <@INTERNAL_LIB_NAME@/version.h>
-#include <iostream>
-
-int main() {
-    std::cout << VERSION;
-    return 0;
-}

@@ -14,7 +14,7 @@ file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc")
 
 add_library(${PROJECT_NAME} ${headers} ${sources})
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD @APP_CXX_STANDARD@)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD @LIB_CXX_STANDARD@)
 
 target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
 

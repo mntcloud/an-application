@@ -5,7 +5,7 @@
 # take the project name from project root directory
 cmake_path(GET CMAKE_SOURCE_DIR FILENAME APP_NAME)
 
-set(APP_CXX_STANDARD 17)
+set(LIB_CXX_STANDARD 17)
 
 # PROJECT GENERATION
 
@@ -24,6 +24,8 @@ configure_file(tests/CMakeLists.txt.in tests/CMakeLists.txt @ONLY)
 configure_file(main/CMakeLists.txt.in main/CMakeLists.txt @ONLY)
 configure_file(main/src/main.cc.in main/src/main.cc)
 
+configure_file(README.md.in README.md)
+
 message(STATUS "cleaning everything up...")
 
 message(STATUS "removing template files...")
@@ -35,6 +37,8 @@ file(REMOVE tests/CMakeLists.txt.in)
 
 file(REMOVE main/CMakeLists.txt.in)
 file(REMOVE main/src/main.cc.in)
+
+file(REMOVE README.md.in)
 
 message(STATUS "removing .git folder...")
 
