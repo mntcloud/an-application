@@ -21,9 +21,6 @@ configure_file(src/version.cc.in src/version.cc)
 
 configure_file(tests/CMakeLists.txt.in tests/CMakeLists.txt @ONLY)
 
-configure_file(main/CMakeLists.txt.in main/CMakeLists.txt @ONLY)
-configure_file(main/src/main.cc.in main/src/main.cc)
-
 configure_file(README.md.in README.md)
 
 message(STATUS "cleaning everything up...")
@@ -34,9 +31,6 @@ file(REMOVE CMakeLists.txt.in)
 file(REMOVE src/version.cc.in)
 
 file(REMOVE tests/CMakeLists.txt.in)
-
-file(REMOVE main/CMakeLists.txt.in)
-file(REMOVE main/src/main.cc.in)
 
 file(REMOVE README.md.in)
 
