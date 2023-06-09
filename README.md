@@ -1,6 +1,8 @@
 # A project
 A C++ project template of mine, tuned for script-based generation
 
+with [CPM](https://github.com/cpm-cmake/CPM.cmake) dependency management and testing using [doctest](https://github.com/doctest/doctest)
+
 ## Getting started
 *Depedencies: Git and CMake*
 
