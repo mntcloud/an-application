@@ -6,7 +6,7 @@ with [CPM](https://github.com/cpm-cmake/CPM.cmake) dependency management and tes
 ## Getting started
 *Depedencies: Git and CMake*
 
-Clone this repository and enter in it
+Clone this repository and enter into the directory
 ```shell
 # to choose template, see branches of this repository
 git clone https://github.com/mntcloud/a-project your_app_name --depth 1 -b template/app
